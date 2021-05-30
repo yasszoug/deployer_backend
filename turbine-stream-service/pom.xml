@@ -11,8 +11,8 @@
 	<description>Turbine Stream Service</description>
 
 	<parent>
-		<groupId>com.piggymetrics</groupId>
-		<artifactId>piggymetrics</artifactId>
+		<groupId>fr.piman</groupId>
+		<artifactId>pigg</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 

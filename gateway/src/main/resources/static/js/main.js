@@ -2,11 +2,15 @@ var user = {},
     savings = {},
     incomes = {},
     expenses = {};
+////
+    projects ={};
 
 function initAccount(account) {
-    user = new User(account.name, account.lastSeen, account.saving.currency, account.note);
-    savings = new Savings (account.saving.amount, account.saving.deposit, account.saving.capitalization, account.saving.interest);
+    //user = new User(account.name, account.lastSeen, account.saving.currency, account.note);
+    user = new User(account.name, account.lastSeen, account.note);
 
+    //savings = new Savings (account.saving.amount, account.saving.deposit, account.saving.capitalization, account.saving.interest);
+/*
     if (account.incomes) {
         for (i = 0; i < account.incomes.length; i++) {
             AddIncome(i + 1, account.incomes[i].title, account.incomes[i].icon, account.incomes[i].currency, account.incomes[i].period, account.incomes[i].amount);
@@ -18,16 +22,26 @@ function initAccount(account) {
             AddExpense(j + 1, account.expenses[j].title, account.expenses[j].icon, account.expenses[j].currency, account.expenses[j].period, account.expenses[j].amount);
         }
     }
+
+ */
+
+    if (account.projects) {
+        for (j = 0; j < account.projects.length; j++) {
+            AddProject(j + 1, account.projects[j].title, account.projects[j].icon, account.projects[j].admin_id);
+        }
+    }
 }
 
-function User(username, lastSeen, currency, note) {
+//function User(username, lastSeen, currency, note) {
 
-    var seen = new Date(lastSeen);
+function User(username, lastSeen, note) {
+
+        var seen = new Date(lastSeen);
 
     this.login = username;
-    this.lastSeen = (seen.getMonth() + 1) + "/" + seen.getDate()  + "/" + seen.getFullYear();;
-    this.checkedCurr = currency;
-    this.lastCurr = currency;
+    this.lastSeen = (seen.getMonth() + 1) + "/" + seen.getDate()  + "/" + seen.getFullYear();
+    //this.checkedCurr = currency;
+    //this.lastCurr = currency;
     this.checkedPercent = 1;
     this.notes = note;
 }
@@ -58,6 +72,15 @@ function AddExpense(expense_id, title, icon, currency, period, amount){
         currency: currency,
         period: period,
         amount: amount.toString()
+    }
+}
+
+function AddProject(project_id, title, icon, admin_id){
+    projects[project_id] = {
+        project_id: project_id,
+        title: title,
+        icon: icon,
+        admin_id: admin_id
     }
 }
 
@@ -169,7 +192,7 @@ function greetingPageAgain() {
     });
     $("#righttitle, #lefttitle").empty();
     $("#righttitle").append('<span class="bluetext">last seen: </span>' + user.lastSeen);
-    $("#lefttitle").append(escape(user.login) + '<span class="bluetext"> metrics</span>');
+    $("#lefttitle").append(escape(user.login) + '<span class="bluetext"> Metrics</span>');
 }
 function showGreetingUnits() {
     $("#lefttitle").fadeIn(500);
@@ -217,12 +240,19 @@ function addItems() {
         $("#expense-" + expenses[key].expense_id).data({"id": expenses[key].expense_id, "icon": expenses[key].icon, "amount": expenses[key].amount, "title": expenses[key].title, "currency": expenses[key].currency ,"period": expenses[key].period}).children("div").addClass(expenses[key].icon);
     });
 
+    Object.keys(projects).forEach(function(key) {
+
+    });
+
     // Show big ADD ITEM button when column is empty
     checkSlidersLength();
 
     // Markup changes according to number of column items
     itemsPosition("expense");
     itemsPosition("income");
+    itemsPosition("projects");
+    itemsPosition("deployements");
+
 }
 
 // According to number of column items - show/hide up&down buttons and change position:absolute
@@ -877,6 +907,7 @@ function jsonDataSave() {
                 note: user.notes,
                 incomes: $.map(incomes, function(value) {return [value]}),
                 expenses: $.map(expenses, function(value) {return [value]}),
+                projects: $.map(projects, function(value) {return [value]}),
                 saving: {
                     amount: Math.ceil(savings.freeMoney),
                     capitalization: savings.capitalization,

@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=1150, user-scalable=no">
-    <title>Piggy Metrics</title>
+    <title>Deployer</title>
     <link rel="stylesheet" type="text/css" href="css/launch.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="css/animation.css">
@@ -70,7 +70,15 @@
             <div id="settingspage">
                 <div id="swipefield"></div>
 
-                <div id="incomes" class="columns"><div class="incomes-sprite-title zoomplus incomebutton"></div>
+                <div id="incomes" class="columns">
+                    <!--
+                    <div class="incomes-sprite-title zoomplus incomebutton">
+
+                    </div>
+                    -->
+                    <div class="zoomplus incomebutton">
+                        <h2>Projects</h2>
+                    </div>
                     <div id="noincomes" class="incomebutton">
                         <div class="hoverplace"></div>
                         <div class="majorplusitem">
@@ -78,7 +86,7 @@
                             <div class="plusitemone"></div>
                             <div class="plusitemtwo"></div>
                         </div>
-                        <span class="plusitemtitle">Add income</span>
+                        <span class="plusitemtitle">Add project</span>
                         <span class="plusitemitalic">Empty space</span>
                     </div>
                     <div class="plusitem" id="incomesplusitem">
@@ -96,7 +104,16 @@
                         </div>
                     </div>
                 </div>
-                <div id="expenses" class="columns"><div class="expenses-sprite-title zoomplus expensebutton"></div>
+                <div id="expenses" class="columns">
+
+                    <!--
+                    <div class="expenses-sprite-title zoomplus expensebutton">
+
+                    </div>
+                    -->
+                    <div class="zoomplus expensebutton">
+                        <h2>Latest Deployements</h2>
+                    </div>
                     <div id="noexpenses" class="expensebutton">
                         <div class="hoverplace"></div>
                         <div class="majorplusitem">
@@ -104,7 +121,7 @@
                             <div class="plusitemone"></div>
                             <div class="plusitemtwo"></div>
                         </div>
-                        <span class="plusitemtitle">Add expense</span>
+                        <span class="plusitemtitle">Make a  deployement</span>
                         <span class="plusitemitalic">Empty space</span>
                     </div>
                     <div class="plusitem" id="expensesplusitem">
@@ -122,12 +139,17 @@
                         </div>
                     </div>
                 </div>
-                <div id="savings" class="columns"><div class="savings-sprite-title"></div>
+                <div id="savings" class="columns">
+
+                    <div class="savings-sprite-title"></div>
+                    <div>
+                        <h2>Notifications</h2>
+                    </div>
                     <div class="blueline"></div>
                     <div class="brownline"></div>
                     <div id="topsavingsline">
                         <div id="piggyicon"></div>
-                        <span class="savingstitle14">My spare money</span>
+                        <span class="savingstitle14">Latest notificatons</span>
                         <span class="savingstitle12">At the moment</span>
                         <div id="rublebox"></div><div id="rublesign"></div>
                         <input type="text" name="savingsvalue" id="savingsvalue" data-a-sep=" " data-v-min="0" data-v-max="999999999" data-l-zero="deny" maxlength="12" autocomplete="off">
@@ -143,7 +165,7 @@
                         <label for="capitalization" class="savingscapital">Monthly capitalization</label>
                     </div>
                 </div>
-                <div id="savebutton"><div id="leftborder"></div><div id="centerborder"></div><div id="rightborder"></div><div id="save"></div></div>
+                <div id="savebutton"><div id="leftborder"></div><div id="centerborder"></div><div id="rightborder"></div><div id="save">Déconnexion</div></div>
             </div>
 
             <form action="user/save" id="saveoptions" method="post" autocomplete="off"></form>
@@ -152,9 +174,9 @@
             <div id="overlay"></div>
             <div id="add-notes">
                 <div class="modal-content">
-                    <div class="notes-title">Financial notes</div>
+                    <div class="notes-title">Saved notes</div>
                     <div class="modal-close"><div class="close-sign"></div></div>
-                    <div class="notes-save"><div class="modal-save-icon"></div><div class="modal-save-text">Save changes</div></div>
+                    <div class="notes-save"><div class="modal-save-icon"></div><div class="modal-save-text">Save Notes changes</div></div>
                     <textarea id="notes" class="notes-input" autocomplete="off" maxlength="5000"></textarea>
                 </div>
             </div>
@@ -182,12 +204,12 @@
                     </div>
                     <div class="initicons"><div id="chooseicon" class="cart-icon"></div><div class="initicons-arrow"></div></div>
                     <input class="modaltitle" placeholder="Title" type="text" autocomplete="off" maxlength="18"/>
-                    <div class="modal-save"><div class="modal-save-icon"></div><div class="modal-save-text">Save changes</div></div>
+                    <div class="modal-save"><div class="modal-save-icon"></div><div class="modal-save-text">Save changes Modal</div></div>
                     <div class="modal-delete"><div id="modaldeletecross"></div><div class="modal-delete-text">Remove</div></div>
 
                     <!-- Expenses table -->
                     <div class="modalexpensessurface">
-                        <div class="modal-title">Choose an icon</div>
+                        <div class="modal-title">Choose an option</div>
                         <table class="modaltable modalforward" id="modalexpensetable">
                             <tr>
                                 <td><div class="imgbox"><div class="iconbox auto"></div></div></td>
@@ -218,7 +240,7 @@
 
                     <!-- Incomes table -->
                     <div class="modalincomessurface">
-                        <div class="modal-title">Choose an icon</div>
+                        <div class="modal-title">Choose a technology</div>
                         <table class="modaltable modalforward" id="modalincomestable">
                             <tr>
                                 <td><div class="imgbox"><div class="iconbox edu"></div></div></td>

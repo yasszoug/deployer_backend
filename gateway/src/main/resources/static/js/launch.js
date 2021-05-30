@@ -81,8 +81,8 @@ $(window).load(function(){
 	}
 
     $.getJSON("https://api.exchangeratesapi.io/latest?base=RUB&symbols=EUR,USD", function( data ) {
-        global.eur = 1 / data.rates.EUR;
-        global.usd = 1 / data.rates.USD;
+        //global.eur = 1 / data.rates.EUR;
+        //global.usd = 1 / data.rates.USD;
     });
 
 	var account = getCurrentAccount();

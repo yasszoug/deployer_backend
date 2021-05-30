@@ -99,9 +99,9 @@ public class AccountControllerTest {
 		account.setName("test");
 		account.setNote("test note");
 		account.setLastSeen(new Date());
-		account.setSaving(saving);
-		account.setExpenses(ImmutableList.of(grocery));
-		account.setIncomes(ImmutableList.of(salary));
+		//account.setSaving(saving);
+		//account.setExpenses(ImmutableList.of(grocery));
+		//account.setIncomes(ImmutableList.of(salary));
 
 		String json = mapper.writeValueAsString(account);
 

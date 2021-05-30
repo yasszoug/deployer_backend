@@ -1,5 +1,6 @@
 package com.piggymetrics.account.domain;
 
+import com.piggymetrics.account.domain.Item;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.data.annotation.Id;
@@ -18,16 +19,25 @@ public class Account {
 	private String name;
 
 	private Date lastSeen;
-
+/*
 	@Valid
 	private List<Item> incomes;
 
 	@Valid
 	private List<Item> expenses;
 
+
+ */
+	///
+	@Valid
+	private List<Item> projects;
+	///
+	/*
 	@Valid
 	@NotNull
 	private Saving saving;
+
+	 */
 
 	@Length(min = 0, max = 20_000)
 	private String note;
@@ -47,6 +57,8 @@ public class Account {
 	public void setLastSeen(Date lastSeen) {
 		this.lastSeen = lastSeen;
 	}
+
+	/*
 
 	public List<Item> getIncomes() {
 		return incomes;
@@ -72,11 +84,21 @@ public class Account {
 		this.saving = saving;
 	}
 
+
+	 */
 	public String getNote() {
 		return note;
 	}
 
 	public void setNote(String note) {
 		this.note = note;
+	}
+
+	public List<Item> getProjects() {
+		return projects;
+	}
+
+	public void setProjects(List<Item> projects) {
+		this.projects = projects;
 	}
 }

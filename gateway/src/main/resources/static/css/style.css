@@ -2709,7 +2709,7 @@ input#deposit:checked + label.button:after, input#capitalization:checked + label
 		height: 56%
 	}
 	#logo_greeting, #logo_settings {
-		background: url("../images/logo.gif") no-repeat;
+		background: url("../images/logotext_large.gif") no-repeat;
 		background-size: 114px 145px;
 		width: 114px;
 		height: 145px;

@@ -62,11 +62,11 @@ public class AccountServiceTest {
 		Account account = accountService.create(user);
 
 		assertEquals(user.getUsername(), account.getName());
-		assertEquals(0, account.getSaving().getAmount().intValue());
-		assertEquals(Currency.getDefault(), account.getSaving().getCurrency());
-		assertEquals(0, account.getSaving().getInterest().intValue());
-		assertEquals(false, account.getSaving().getDeposit());
-		assertEquals(false, account.getSaving().getCapitalization());
+		//assertEquals(0, account.getSaving().getAmount().intValue());
+		//assertEquals(Currency.getDefault(), account.getSaving().getCurrency());
+		//assertEquals(0, account.getSaving().getInterest().intValue());
+		//assertEquals(false, account.getSaving().getDeposit());
+		//assertEquals(false, account.getSaving().getCapitalization());
 		assertNotNull(account.getLastSeen());
 
 		verify(authClient, times(1)).createUser(user);
@@ -100,9 +100,9 @@ public class AccountServiceTest {
 		final Account update = new Account();
 		update.setName("test");
 		update.setNote("test note");
-		update.setIncomes(Arrays.asList(salary));
-		update.setExpenses(Arrays.asList(grocery));
-		update.setSaving(saving);
+		//update.setIncomes(Arrays.asList(salary));
+		//update.setExpenses(Arrays.asList(grocery));
+		//update.setSaving(saving);
 
 		final Account account = new Account();
 
@@ -112,26 +112,26 @@ public class AccountServiceTest {
 		assertEquals(update.getNote(), account.getNote());
 		assertNotNull(account.getLastSeen());
 
-		assertEquals(update.getSaving().getAmount(), account.getSaving().getAmount());
-		assertEquals(update.getSaving().getCurrency(), account.getSaving().getCurrency());
-		assertEquals(update.getSaving().getInterest(), account.getSaving().getInterest());
-		assertEquals(update.getSaving().getDeposit(), account.getSaving().getDeposit());
-		assertEquals(update.getSaving().getCapitalization(), account.getSaving().getCapitalization());
+		//assertEquals(update.getSaving().getAmount(), account.getSaving().getAmount());
+		//assertEquals(update.getSaving().getCurrency(), account.getSaving().getCurrency());
+		//assertEquals(update.getSaving().getInterest(), account.getSaving().getInterest());
+		//assertEquals(update.getSaving().getDeposit(), account.getSaving().getDeposit());
+		//assertEquals(update.getSaving().getCapitalization(), account.getSaving().getCapitalization());
 
-		assertEquals(update.getExpenses().size(), account.getExpenses().size());
-		assertEquals(update.getIncomes().size(), account.getIncomes().size());
+		//assertEquals(update.getExpenses().size(), account.getExpenses().size());
+		//assertEquals(update.getIncomes().size(), account.getIncomes().size());
 
-		assertEquals(update.getExpenses().get(0).getTitle(), account.getExpenses().get(0).getTitle());
-		assertEquals(0, update.getExpenses().get(0).getAmount().compareTo(account.getExpenses().get(0).getAmount()));
-		assertEquals(update.getExpenses().get(0).getCurrency(), account.getExpenses().get(0).getCurrency());
-		assertEquals(update.getExpenses().get(0).getPeriod(), account.getExpenses().get(0).getPeriod());
-		assertEquals(update.getExpenses().get(0).getIcon(), account.getExpenses().get(0).getIcon());
-		
-		assertEquals(update.getIncomes().get(0).getTitle(), account.getIncomes().get(0).getTitle());
-		assertEquals(0, update.getIncomes().get(0).getAmount().compareTo(account.getIncomes().get(0).getAmount()));
-		assertEquals(update.getIncomes().get(0).getCurrency(), account.getIncomes().get(0).getCurrency());
-		assertEquals(update.getIncomes().get(0).getPeriod(), account.getIncomes().get(0).getPeriod());
-		assertEquals(update.getIncomes().get(0).getIcon(), account.getIncomes().get(0).getIcon());
+		//assertEquals(update.getExpenses().get(0).getTitle(), account.getExpenses().get(0).getTitle());
+		//assertEquals(0, update.getExpenses().get(0).getAmount().compareTo(account.getExpenses().get(0).getAmount()));
+		//assertEquals(update.getExpenses().get(0).getCurrency(), account.getExpenses().get(0).getCurrency());
+		//assertEquals(update.getExpenses().get(0).getPeriod(), account.getExpenses().get(0).getPeriod());
+		//assertEquals(update.getExpenses().get(0).getIcon(), account.getExpenses().get(0).getIcon());
+
+		//assertEquals(update.getIncomes().get(0).getTitle(), account.getIncomes().get(0).getTitle());
+		//assertEquals(0, update.getIncomes().get(0).getAmount().compareTo(account.getIncomes().get(0).getAmount()));
+		//assertEquals(update.getIncomes().get(0).getCurrency(), account.getIncomes().get(0).getCurrency());
+		//assertEquals(update.getIncomes().get(0).getPeriod(), account.getIncomes().get(0).getPeriod());
+		//assertEquals(update.getIncomes().get(0).getIcon(), account.getIncomes().get(0).getIcon());
 		
 		verify(repository, times(1)).save(account);
 		verify(statisticsClient, times(1)).updateStatistics("test", account);
@@ -140,8 +140,9 @@ public class AccountServiceTest {
 	@Test(expected = IllegalArgumentException.class)
 	public void shouldFailWhenNoAccountsExistedWithGivenName() {
 		final Account update = new Account();
-		update.setIncomes(Arrays.asList(new Item()));
-		update.setExpenses(Arrays.asList(new Item()));
+
+		//update.setIncomes(Arrays.asList(new Item()));
+		//update.setExpenses(Arrays.asList(new Item()));
 
 		when(accountService.findByName("test")).thenReturn(null);
 		accountService.saveChanges("test", update);
