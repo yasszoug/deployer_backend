@@ -11,8 +11,8 @@
 	<description>Configuration Server</description>
 
 	<parent>
-		<groupId>com.piggymetrics</groupId>
-		<artifactId>piggymetrics</artifactId>
+		<groupId>fr.piman</groupId>
+		<artifactId>deployer</artifactId>
 		<version>1.0-SNAPSHOT</version>
 	</parent>
 
