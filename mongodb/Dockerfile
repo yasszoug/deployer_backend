@@ -1,5 +1,5 @@
 FROM mongo:3
-MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
+MAINTAINER Yassine ZOUGGAH <y.zougagh@piman-group.fr>
 
 ADD init.sh /init.sh
 ADD ./dump /

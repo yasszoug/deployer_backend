@@ -1,5 +1,5 @@
 FROM java:8-jre
-MAINTAINER Alexander Lukyanchikov <sqshq@sqshq.com>
+MAINTAINER Yassine ZOUGAGH <y.zougagh@piman-group.fr>
 
 ADD ./target/config.jar /app/
 CMD ["java", "-Xmx200m", "-jar", "/app/config.jar"]
