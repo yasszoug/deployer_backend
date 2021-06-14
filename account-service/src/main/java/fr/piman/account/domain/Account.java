@@ -23,12 +23,10 @@ public class Account {
 
 	@Valid
 	private List<Item> expenses;
-
-
  */
 	///
 	@Valid
-	private List<Item> projects;
+	private List<Application> applications;
 	///
 	/*
 	@Valid
@@ -92,11 +90,11 @@ public class Account {
 		this.note = note;
 	}
 
-	public List<Item> getProjects() {
-		return projects;
+	public List<Application> getApplications() {
+		return applications;
 	}
 
-	public void setProjects(List<Item> projects) {
-		this.projects = projects;
+	public void setApplications(List<Application> applications) {
+		this.applications = applications;
 	}
 }

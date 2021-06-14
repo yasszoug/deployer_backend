@@ -3,7 +3,7 @@ var user = {},
     incomes = {},
     expenses = {};
 ////
-    projects ={};
+    applications ={};
 
 function initAccount(account) {
     //user = new User(account.name, account.lastSeen, account.saving.currency, account.note);
@@ -25,9 +25,9 @@ function initAccount(account) {
 
  */
 
-    if (account.projects) {
-        for (j = 0; j < account.projects.length; j++) {
-            AddProject(j + 1, account.projects[j].title, account.projects[j].icon, account.projects[j].admin_id);
+    if (account.applications) {
+        for (j = 0; j < account.applications.length; j++) {
+            AddApplication(j + 1, account.applications[j].title, account.applications[j].icon, account.applications[j].admin_id);
         }
     }
 }
@@ -75,9 +75,9 @@ function AddExpense(expense_id, title, icon, currency, period, amount){
     }
 }
 
-function AddProject(project_id, title, icon, admin_id){
-    projects[project_id] = {
-        project_id: project_id,
+function AddApplication(application_id, title, icon, admin_id){
+    applications[application_id] = {
+        application_id: application_id,
         title: title,
         icon: icon,
         admin_id: admin_id
@@ -240,7 +240,7 @@ function addItems() {
         $("#expense-" + expenses[key].expense_id).data({"id": expenses[key].expense_id, "icon": expenses[key].icon, "amount": expenses[key].amount, "title": expenses[key].title, "currency": expenses[key].currency ,"period": expenses[key].period}).children("div").addClass(expenses[key].icon);
     });
 
-    Object.keys(projects).forEach(function(key) {
+    Object.keys(applications).forEach(function(key) {
 
     });
 
@@ -250,7 +250,7 @@ function addItems() {
     // Markup changes according to number of column items
     itemsPosition("expense");
     itemsPosition("income");
-    itemsPosition("projects");
+    itemsPosition("applications");
     itemsPosition("deployements");
 
 }
@@ -907,7 +907,7 @@ function jsonDataSave() {
                 note: user.notes,
                 incomes: $.map(incomes, function(value) {return [value]}),
                 expenses: $.map(expenses, function(value) {return [value]}),
-                projects: $.map(projects, function(value) {return [value]}),
+                applications: $.map(applications, function(value) {return [value]}),
                 saving: {
                     amount: Math.ceil(savings.freeMoney),
                     capitalization: savings.capitalization,

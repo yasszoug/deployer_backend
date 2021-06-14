@@ -48,13 +48,14 @@ public class AccountServiceImpl implements AccountService {
 		Assert.isNull(existing, "account already exists: " + user.getUsername());
 
 		authClient.createUser(user);
-
+/*
 		Saving saving = new Saving();
 		saving.setAmount(new BigDecimal(0));
 		saving.setCurrency(Currency.getDefault());
 		saving.setInterest(new BigDecimal(0));
 		saving.setDeposit(false);
 		saving.setCapitalization(false);
+ */
 
 		Account account = new Account();
 		account.setName(user.getUsername());
@@ -81,7 +82,7 @@ public class AccountServiceImpl implements AccountService {
 		//account.setExpenses(update.getExpenses());
 		//account.setSaving(update.getSaving());
 
-		account.setProjects(update.getProjects());
+		account.setApplications(update.getApplications());
 		account.setNote(update.getNote());
 		account.setLastSeen(new Date());
 

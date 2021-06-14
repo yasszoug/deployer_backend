@@ -15,14 +15,14 @@ server:
 remind:
   cron: 0 0 0 * * *
   email:
-    text: "Hey, {0}! We''ve missed you here on PiggyMetrics. It''s time to check your budget statistics.\r\n\r\nCheers,\r\nPiggyMetrics team"
-    subject: PiggyMetrics reminder
+    text: "Hey, {0}! We''ve missed you here on Deployer. It''s time to check your budget statistics.\r\n\r\nCheers,\r\nPiman Deployer team"
+    subject: Deployer reminder
 
 backup:
   cron: 0 0 12 * * *
   email:
-    text: "Howdy, {0}. Your account backup is ready.\r\n\r\nCheers,\r\nPiggyMetrics team"
-    subject: PiggyMetrics account backup
+    text: "Howdy, {0}. Your account backup is ready.\r\n\r\nCheers,\r\nPiman Deployer"
+    subject: Deployer account backup
     attachment: backup.json
 
 spring:
@@ -31,7 +31,7 @@ spring:
       host: notification-mongodb
       username: user
       password: ${MONGODB_PASSWORD}
-      database: piggymetrics
+      database: deployerdb
       port: 27017
   mail:
     host: smtp.gmail.com

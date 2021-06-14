@@ -1,4 +1,4 @@
-package com.piggymetrics.config;
+package fr.piman.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
