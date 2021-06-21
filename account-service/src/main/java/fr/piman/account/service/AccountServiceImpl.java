@@ -89,7 +89,15 @@ public class AccountServiceImpl implements AccountService {
 		repository.save(account);
 
 		log.debug("account {} changes has been saved", name);
-
 		//statisticsClient.updateStatistics(name, account);
+	}
+
+	@Override
+	public void deleteAccountByName(String name) {
+
+		Account account = repository.findByName(name);
+		repository.delete(account);
+		//Assert.notNull(account, "Account " + name+ " deleted");
+		log.debug("account {} has been deleted", name);
 	}
 }

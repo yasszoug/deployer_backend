@@ -20,6 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .httpBasic();
 
-        http.cors();
+        //http.cors();
     }
 }

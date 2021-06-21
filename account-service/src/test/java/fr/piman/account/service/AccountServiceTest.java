@@ -1,7 +1,7 @@
 package fr.piman.account.service;
 
 import fr.piman.account.client.AuthServiceClient;
-import fr.piman.account.client.StatisticsServiceClient;
+//import fr.piman.account.client.StatisticsServiceClient;
 import fr.piman.account.domain.*;
 import fr.piman.account.repository.AccountRepository;
 import fr.piman.account.domain.*;
@@ -22,8 +22,8 @@ public class AccountServiceTest {
 	@InjectMocks
 	private AccountServiceImpl accountService;
 
-	@Mock
-	private StatisticsServiceClient statisticsClient;
+//	@Mock
+//	private StatisticsServiceClient statisticsClient;
 
 	@Mock
 	private AuthServiceClient authClient;
@@ -134,7 +134,7 @@ public class AccountServiceTest {
 		//assertEquals(update.getIncomes().get(0).getIcon(), account.getIncomes().get(0).getIcon());
 		
 		verify(repository, times(1)).save(account);
-		verify(statisticsClient, times(1)).updateStatistics("test", account);
+		//verify(statisticsClient, times(1)).updateStatistics("test", account);
 	}
 
 	@Test(expected = IllegalArgumentException.class)

@@ -31,4 +31,11 @@ public interface AccountService {
 	 * @param update
 	 */
 	void saveChanges(String name, Account update);
+
+    void deleteAccountByName(String name);
+	/**
+	 * Validates and delete incoming account
+	 *
+	 * @param name
+	 */
 }

@@ -1,0 +1,22 @@
+security:
+  oauth2:
+    client:
+      clientId: project-service
+      clientSecret: ${PROJECT_SERVICE_PASSWORD}
+      accessTokenUri: http://auth-service:5000/uaa/oauth/token
+      grant-type: client_credentials
+      scope: server
+
+spring:
+  data:
+    mongodb:
+      host: project-mongodb
+      username: user
+      password: ${MONGODB_PASSWORD}
+      database: deployerdb
+      port: 27017
+
+server:
+  servlet:
+    context-path: /project
+  port: 7001

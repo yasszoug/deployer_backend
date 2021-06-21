@@ -15,20 +15,17 @@ public class AccountController {
 	@Autowired
 	private AccountService accountService;
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	//@PreAuthorize("#oauth2.hasScope('server') or #name.equals('demo')")
 	@RequestMapping(path = "/{name}", method = RequestMethod.GET)
 	public Account getAccountByName(@PathVariable String name) {
 		return accountService.findByName(name);
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(path = "/current", method = RequestMethod.GET)
 	public Account getCurrentAccount(Principal principal) {
 		return accountService.findByName(principal.getName());
 	}
 
-	//@CrossOrigin(origins = "http://localhost:4200")
 	@RequestMapping(path = "/current", method = RequestMethod.PUT)
 	public void saveCurrentAccount(Principal principal, @Valid @RequestBody Account account) {
 		accountService.saveChanges(principal.getName(), account);
@@ -38,4 +35,9 @@ public class AccountController {
 	public Account createNewAccount(@Valid @RequestBody User user) {
 		return accountService.create(user);
 	}
+
+	@RequestMapping(path = "/{name}", method = RequestMethod.DELETE)
+	public void deleteAccountByName(@PathVariable String name){ accountService.deleteAccountByName(name);
+	}
+
 }

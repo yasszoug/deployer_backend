@@ -41,5 +41,11 @@ zuul:
         stripPrefix: false
         sensitiveHeaders:
 
+    project-service:
+      path: /project/**
+      serviceId: project-service
+      stripPrefix: false
+      sensitiveHeaders:
+
 server:
   port: 4000

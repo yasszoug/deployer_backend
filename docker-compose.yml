@@ -51,7 +51,7 @@ services:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
       NOTIFICATION_SERVICE_PASSWORD: $NOTIFICATION_SERVICE_PASSWORD
-      STATISTICS_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
+#      STATISTICS_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
       ACCOUNT_SERVICE_PASSWORD: $ACCOUNT_SERVICE_PASSWORD
       MONGODB_PASSWORD: $MONGODB_PASSWORD
     restart: always
@@ -96,11 +96,35 @@ services:
         max-size: "10m"
         max-file: "10"
 
-  statistics-service:
+#  statistics-service:
+#    environment:
+#      CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
+#      MONGODB_PASSWORD: $MONGODB_PASSWORD
+#      STATISTICS_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
+#    restart: always
+#    depends_on:
+#      config:
+#        condition: service_healthy
+#    logging:
+#      options:
+#        max-size: "10m"
+#        max-file: "10"
+
+#  statistics-mongodb:
+#    environment:
+#      MONGODB_PASSWORD: $MONGODB_PASSWORD
+#    restart: always
+#    logging:
+#      options:
+#        max-size: "10m"
+#        max-file: "10"
+
+
+  project-service:
     environment:
       CONFIG_SERVICE_PASSWORD: $CONFIG_SERVICE_PASSWORD
       MONGODB_PASSWORD: $MONGODB_PASSWORD
-      STATISTICS_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
+      PROJECT_SERVICE_PASSWORD: $STATISTICS_SERVICE_PASSWORD
     restart: always
     depends_on:
       config:
@@ -110,7 +134,7 @@ services:
         max-size: "10m"
         max-file: "10"
 
-  statistics-mongodb:
+  project-mongodb:
     environment:
       MONGODB_PASSWORD: $MONGODB_PASSWORD
     restart: always
